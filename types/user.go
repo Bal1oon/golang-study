@@ -8,7 +8,7 @@ type User struct {
 // Create
 type CreateRequest struct {
 	Name string `json:"name" binding:"required"`
-	Age  int64  `json:age: binding:required`
+	Age  int64  `json:"age" binding:"required"`
 }
 
 func (c *CreateRequest) ToUser() *User {
@@ -31,7 +31,7 @@ type GetUserResponse struct {
 // Update
 type UpdateUserRequest struct {
 	Name       string `json:"name" binding:"required"`
-	UpdatedAge int64  `json:"updatedAge" binding:"required`
+	UpdatedAge int64  `json:"updatedAge" binding:"required"`
 }
 
 type UpdateUserResponse struct {
