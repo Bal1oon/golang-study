@@ -16,6 +16,8 @@ type Cmd struct {
 }
 
 func NewCmd(filePath string) *Cmd {
+	// c := new(Cmd)
+	// c.config = config.NewConfig(filePath)
 	c := &Cmd{
 		config: config.NewConfig(filePath),
 	}
