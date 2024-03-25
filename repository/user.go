@@ -16,8 +16,21 @@ func newUserRepository() *UserRepository {
 }
 
 func (u *UserRepository) Create(newUser *types.User) error {
-	u.userMap = append(u.userMap, newUser)
-	return nil
+	isExisted := false
+	for _, user := range u.userMap {
+		if user.Name == newUser.Name {
+			isExisted = true
+			break
+		}
+	}
+	if !isExisted {
+		u.userMap = append(u.userMap, newUser)
+		return nil
+	} else {
+		return errors.Errorf(errors.AlreadyExisted, newUser.Name)
+	}
+	// u.userMap = append(u.userMap, newUser)
+	// return nil
 }
 
 func (u *UserRepository) Update(name string, newAge int64) error {
